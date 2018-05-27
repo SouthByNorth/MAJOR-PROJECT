@@ -26,6 +26,7 @@ Partial Class Form_TeacherScratch
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -63,16 +64,26 @@ Partial Class Form_TeacherScratch
         Me.Button2.Text = "Save"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Form_Teacher
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(766, 568)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(147, 71)
+        Me.Button3.TabIndex = 4
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Form_TeacherScratch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1415, 761)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
-        Me.Name = "Form_Teacher"
+        Me.Name = "Form_TeacherScratch"
         Me.Text = "Form_Teacher"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -83,4 +94,5 @@ Partial Class Form_TeacherScratch
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class
