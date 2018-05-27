@@ -7,7 +7,7 @@
         myLabel.Text = "Click:" + count.ToString
         myLabel.AutoSize = True
         'myLabel.
-        count = count + 1
+        count = count + 2
 
         FlowLayoutPanel1.Controls.Add(myLabel)
 
