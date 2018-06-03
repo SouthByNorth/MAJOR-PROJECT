@@ -110,7 +110,7 @@ Partial Class Form_StudentScratch
         Me.Button2.Text = "Text"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Form_Student
+        'Form_StudentScratch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -124,7 +124,7 @@ Partial Class Form_StudentScratch
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form_Student"
+        Me.Name = "Form_StudentScratch"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()

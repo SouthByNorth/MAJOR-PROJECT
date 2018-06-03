@@ -72,6 +72,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_SignIn.Designer.vb">
+      <DependentUpon>Form_SignIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_SignIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form_StudentScratch.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_SignIn.resx">
+      <DependentUpon>Form_SignIn.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_StudentScratch.resx">
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
     </EmbeddedResource>

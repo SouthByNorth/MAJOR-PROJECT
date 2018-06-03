@@ -19,7 +19,7 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Create a textbox, set the text value
         Dim myTextBox As New TextBox
-        myTextBox.Text = "Poop" + count.ToString
+        myTextBox.Text = "Show" + count.ToString
         count += 1
 
         'now add the control to the flow panel
