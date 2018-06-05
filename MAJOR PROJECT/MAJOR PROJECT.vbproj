@@ -91,6 +91,12 @@
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_TeacherEdit.Designer.vb">
+      <DependentUpon>Form_TeacherEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TeacherEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form_TeacherScratch.Designer.vb">
       <DependentUpon>Form_TeacherScratch.vb</DependentUpon>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_StudentScratch.resx">
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TeacherEdit.resx">
+      <DependentUpon>Form_TeacherEdit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_TeacherScratch.resx">
       <DependentUpon>Form_TeacherScratch.vb</DependentUpon>

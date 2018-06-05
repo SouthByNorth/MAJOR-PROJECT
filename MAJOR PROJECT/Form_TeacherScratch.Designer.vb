@@ -22,20 +22,20 @@ Partial Class Form_TeacherScratch
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BTNFileLoad = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Button1
+        'BTNFileLoad
         '
-        Me.Button1.Location = New System.Drawing.Point(54, 44)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(426, 160)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Load File"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BTNFileLoad.Location = New System.Drawing.Point(54, 44)
+        Me.BTNFileLoad.Name = "BTNFileLoad"
+        Me.BTNFileLoad.Size = New System.Drawing.Size(426, 160)
+        Me.BTNFileLoad.TabIndex = 0
+        Me.BTNFileLoad.Text = "Load File"
+        Me.BTNFileLoad.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
@@ -71,7 +71,7 @@ Partial Class Form_TeacherScratch
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.BTNFileLoad)
         Me.Name = "Form_TeacherScratch"
         Me.Text = "Form_Teacher"
         Me.ResumeLayout(False)
@@ -79,7 +79,7 @@ Partial Class Form_TeacherScratch
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BTNFileLoad As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Button2 As Button
