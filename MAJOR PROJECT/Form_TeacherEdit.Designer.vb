@@ -22,18 +22,18 @@ Partial Class Form_TeacherEdit
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_TeacherEdit))
         Me.BTNLoad = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GBwselection = New System.Windows.Forms.GroupBox()
         Me.LBRemove = New System.Windows.Forms.ListBox()
-        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.GB = New System.Windows.Forms.GroupBox()
         Me.BTNpreview = New System.Windows.Forms.Button()
         Me.BTNprint = New System.Windows.Forms.Button()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.GBwselection.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,22 +54,9 @@ Partial Class Form_TeacherEdit
         Me.RichTextBox1.TabIndex = 1
         Me.RichTextBox1.Text = ""
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.Location = New System.Drawing.Point(636, 669)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(541, 242)
-        Me.GroupBox3.TabIndex = 3
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "GroupBox3"
-        '
         'GBwselection
         '
         Me.GBwselection.Controls.Add(Me.LBRemove)
-        Me.GBwselection.Controls.Add(Me.RadioButton4)
-        Me.GBwselection.Controls.Add(Me.RadioButton3)
-        Me.GBwselection.Controls.Add(Me.RadioButton2)
-        Me.GBwselection.Controls.Add(Me.RadioButton1)
         Me.GBwselection.Location = New System.Drawing.Point(53, 181)
         Me.GBwselection.Name = "GBwselection"
         Me.GBwselection.Size = New System.Drawing.Size(514, 442)
@@ -81,63 +68,10 @@ Partial Class Form_TeacherEdit
         '
         Me.LBRemove.FormattingEnabled = True
         Me.LBRemove.ItemHeight = 25
-        Me.LBRemove.Location = New System.Drawing.Point(256, 117)
+        Me.LBRemove.Location = New System.Drawing.Point(212, 19)
         Me.LBRemove.Name = "LBRemove"
-        Me.LBRemove.Size = New System.Drawing.Size(238, 304)
+        Me.LBRemove.Size = New System.Drawing.Size(284, 379)
         Me.LBRemove.TabIndex = 5
-        '
-        'RadioButton4
-        '
-        Me.RadioButton4.AutoSize = True
-        Me.RadioButton4.Location = New System.Drawing.Point(29, 205)
-        Me.RadioButton4.Name = "RadioButton4"
-        Me.RadioButton4.Size = New System.Drawing.Size(173, 29)
-        Me.RadioButton4.TabIndex = 4
-        Me.RadioButton4.TabStop = True
-        Me.RadioButton4.Text = "RadioButton4"
-        Me.RadioButton4.UseVisualStyleBackColor = True
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(29, 170)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(173, 29)
-        Me.RadioButton3.TabIndex = 3
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "RadioButton3"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(29, 135)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(173, 29)
-        Me.RadioButton2.TabIndex = 2
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "RadioButton2"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(29, 100)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(173, 29)
-        Me.RadioButton1.TabIndex = 1
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'GB
-        '
-        Me.GB.Location = New System.Drawing.Point(53, 669)
-        Me.GB.Name = "GB"
-        Me.GB.Size = New System.Drawing.Size(527, 242)
-        Me.GB.TabIndex = 4
-        Me.GB.TabStop = False
-        Me.GB.Text = "GroupBox2"
         '
         'BTNpreview
         '
@@ -157,6 +91,25 @@ Partial Class Form_TeacherEdit
         Me.BTNprint.Text = "Print"
         Me.BTNprint.UseVisualStyleBackColor = True
         '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Document = Me.PrintDocument1
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
         'Form_TeacherEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
@@ -164,28 +117,24 @@ Partial Class Form_TeacherEdit
         Me.ClientSize = New System.Drawing.Size(1415, 947)
         Me.Controls.Add(Me.BTNprint)
         Me.Controls.Add(Me.BTNpreview)
-        Me.Controls.Add(Me.GB)
         Me.Controls.Add(Me.GBwselection)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.BTNLoad)
         Me.Name = "Form_TeacherEdit"
         Me.GBwselection.ResumeLayout(False)
-        Me.GBwselection.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents BTNLoad As Button
     Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GBwselection As GroupBox
-    Friend WithEvents GB As GroupBox
     Friend WithEvents BTNpreview As Button
     Friend WithEvents BTNprint As Button
-    Friend WithEvents RadioButton4 As RadioButton
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents LBRemove As ListBox
+    Friend WithEvents PrintDialog1 As System.Windows.Forms.PrintDialog
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class
