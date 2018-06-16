@@ -1,16 +1,17 @@
 ﻿Imports System.IO
 
-
 Public Class Form_TeacherEdit
 
     Dim word As List(Of String) = New List(Of String)
-    Dim text As String
+    Dim texts As String
     Dim FileReader As String
 
     Private Sub BTNLoad_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BTNLoad.Click
         'FileReader = My.Computer.FileSystem.ReadAllText("c:\Users\rpren\Documents\ClozeTextFiles\Simple.txt")
 
         Dim myStream As Stream = Nothing
+
+
         Dim openFileDialog1 As New OpenFileDialog()
 
         openFileDialog1.InitialDirectory = "c:\Users\rpren\Documents\ClozeTextFiles\"
@@ -20,11 +21,10 @@ Public Class Form_TeacherEdit
 
         If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
             Try
-                myStream = openFileDialog1.OpenFile()
-                If (myStream IsNot Nothing) Then
-                    ' Insert code to read the stream here.
 
-                End If
+                Loadfile(openFileDialog1.FileName)
+
+
             Catch Ex As Exception
                 MessageBox.Show("Cannot read file from disk. Original error: " & Ex.Message)
             Finally
@@ -43,7 +43,8 @@ Public Class Form_TeacherEdit
 
         'we have a double click event, let's see what words have been selected
 
-        Dim thisWord As String = RichTextBox1.SelectedText
+        Dim thisWord As String = RichTextBox1.SelectedText.Trim(" ")
+
 
         'Avoid adding duplicates
         If (Not (LBRemove.Items.Contains(thisWord))) Then
@@ -58,11 +59,44 @@ Public Class Form_TeacherEdit
         myListBox.Items.RemoveAt(selectedIndex)
     End Sub
 
-    Private Sub BTNprint_Click(sender As Object, e As EventArgs) Handles BTNprint.Click
-
-
-
+    Private Sub Form_TeacherEdit_Load(sender As Object, e As EventArgs) ' Handles Me.Load
+        ''allows a bypass of the repettitive load for tests
+        Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple.txt"
+        Loadfile(fileName)
 
     End Sub
-End Class
 
+    Private Sub Loadfile(fileName As String)
+        Dim myStreamReader = New StreamReader(fileName)
+        If (myStreamReader IsNot Nothing) Then
+            'Read the file content to a holding string
+            Dim fileContents As String = myStreamReader.ReadToEnd
+            'Split the file by our special seperator to break the CLOZE test from the selections
+            Dim splits() As String = fileContents.Split("}".ToCharArray)
+            Dim mainText As String = splits(0)
+            Dim selections As String = splits(1)
+
+            'write main text to ui
+            RichTextBox1.Text = mainText
+
+
+            'convert the selection string to a list of items
+            Dim items As String() = selections.Split(vbCrLf)
+
+            For Each item As String In items
+                'item = item.TrimStart(vbLf.ToCharArray)
+                item = Strings.Mid(item, 2)
+                If item.Length > 0 Then
+                    LBRemove.Items.Add(item)
+                End If
+
+            Next
+
+
+            '   LBRemove.Items.AddRange(items)
+        End If
+    End Sub
+
+
+
+End Class
