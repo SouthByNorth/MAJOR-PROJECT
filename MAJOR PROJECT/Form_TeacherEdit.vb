@@ -6,6 +6,8 @@ Public Class Form_TeacherEdit
     Dim texts As String
     Dim FileReader As String
 
+    Const SEPERATOR As String = "}"
+
     Private Sub BTNLoad_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BTNLoad.Click
         'FileReader = My.Computer.FileSystem.ReadAllText("c:\Users\rpren\Documents\ClozeTextFiles\Simple.txt")
 
@@ -59,7 +61,7 @@ Public Class Form_TeacherEdit
         myListBox.Items.RemoveAt(selectedIndex)
     End Sub
 
-    Private Sub Form_TeacherEdit_Load(sender As Object, e As EventArgs) ' Handles Me.Load
+    Private Sub Form_TeacherEdit_Load(sender As Object, e As EventArgs) Handles Me.Load
         ''allows a bypass of the repettitive load for tests
         Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple.txt"
         Loadfile(fileName)
@@ -72,7 +74,7 @@ Public Class Form_TeacherEdit
             'Read the file content to a holding string
             Dim fileContents As String = myStreamReader.ReadToEnd
             'Split the file by our special seperator to break the CLOZE test from the selections
-            Dim splits() As String = fileContents.Split("}".ToCharArray)
+            Dim splits() As String = fileContents.Split(SEPERATOR.ToCharArray)
             Dim mainText As String = splits(0)
             Dim selections As String = splits(1)
 
@@ -97,6 +99,35 @@ Public Class Form_TeacherEdit
         End If
     End Sub
 
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Dim ont As New Font("Arial", 16, FontStyle.Regular)
+        'e.Graphics.DrawString()
+    End Sub
+
+    Private Sub BTNsave_Click(sender As Object, e As EventArgs) Handles BTNsave.Click
 
 
+        Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple1.txt"
+
+        ' get rid of file if already exosts 
+        If File.Exists(fileName) Then
+            File.Delete(fileName)
+        End If
+
+
+        Dim fileWrite As System.IO.StreamWriter
+
+        fileWrite = My.Computer.FileSystem.OpenTextFileWriter(fileName, True)
+        fileWrite.WriteLine(RichTextBox1.Text)
+        fileWrite.WriteLine(SEPERATOR)
+
+        For Each item As String In LBRemove.Items
+
+            fileWrite.WriteLine(item)
+        Next
+
+
+        fileWrite.Close()
+
+    End Sub
 End Class

@@ -34,6 +34,7 @@ Partial Class Form_TeacherEdit
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.BTNsave = New System.Windows.Forms.Button()
         Me.GBwselection.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -99,6 +100,9 @@ Partial Class Form_TeacherEdit
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'PrintDocument1
+        '
+        '
         'PrintPreviewDialog1
         '
         Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
@@ -110,11 +114,21 @@ Partial Class Form_TeacherEdit
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
         Me.PrintPreviewDialog1.Visible = False
         '
+        'BTNsave
+        '
+        Me.BTNsave.Location = New System.Drawing.Point(53, 750)
+        Me.BTNsave.Name = "BTNsave"
+        Me.BTNsave.Size = New System.Drawing.Size(392, 140)
+        Me.BTNsave.TabIndex = 7
+        Me.BTNsave.Text = "Save"
+        Me.BTNsave.UseVisualStyleBackColor = True
+        '
         'Form_TeacherEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1415, 947)
+        Me.Controls.Add(Me.BTNsave)
         Me.Controls.Add(Me.BTNprint)
         Me.Controls.Add(Me.BTNpreview)
         Me.Controls.Add(Me.GBwselection)
@@ -137,4 +151,5 @@ Partial Class Form_TeacherEdit
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents BTNsave As Button
 End Class
