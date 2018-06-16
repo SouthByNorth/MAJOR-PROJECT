@@ -6,7 +6,7 @@ Public Class Form_TeacherEdit
     Dim texts As String
     Dim FileReader As String
 
-    Const SEPERATOR As String = "}"
+
 
     Private Sub BTNLoad_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BTNLoad.Click
         'FileReader = My.Computer.FileSystem.ReadAllText("c:\Users\rpren\Documents\ClozeTextFiles\Simple.txt")
@@ -68,36 +68,17 @@ Public Class Form_TeacherEdit
 
     End Sub
 
+
     Private Sub Loadfile(fileName As String)
-        Dim myStreamReader = New StreamReader(fileName)
-        If (myStreamReader IsNot Nothing) Then
-            'Read the file content to a holding string
-            Dim fileContents As String = myStreamReader.ReadToEnd
-            'Split the file by our special seperator to break the CLOZE test from the selections
-            Dim splits() As String = fileContents.Split(SEPERATOR.ToCharArray)
-            Dim mainText As String = splits(0)
-            Dim selections As String = splits(1)
+        'read the file to our dat structure, then transferr to the ui
+        Dim closeText As ClozeText = ClozeText.ReadClozeText(fileName)
 
-            'write main text to ui
-            RichTextBox1.Text = mainText
+        'load controls
+        RichTextBox1.Text = closeText.MainText
+        LBRemove.Items.AddRange(closeText.Selections.ToArray)
 
-
-            'convert the selection string to a list of items
-            Dim items As String() = selections.Split(vbCrLf)
-
-            For Each item As String In items
-                'item = item.TrimStart(vbLf.ToCharArray)
-                item = Strings.Mid(item, 2)
-                If item.Length > 0 Then
-                    LBRemove.Items.Add(item)
-                End If
-
-            Next
-
-
-            '   LBRemove.Items.AddRange(items)
-        End If
     End Sub
+
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         Dim ont As New Font("Arial", 16, FontStyle.Regular)
@@ -119,7 +100,7 @@ Public Class Form_TeacherEdit
 
         fileWrite = My.Computer.FileSystem.OpenTextFileWriter(fileName, True)
         fileWrite.WriteLine(RichTextBox1.Text)
-        fileWrite.WriteLine(SEPERATOR)
+        fileWrite.WriteLine(ClozeText.SEPERATOR)
 
         For Each item As String In LBRemove.Items
 

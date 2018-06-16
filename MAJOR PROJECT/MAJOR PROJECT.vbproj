@@ -72,6 +72,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClozeText.vb" />
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -89,6 +90,12 @@
     </Compile>
     <Compile Include="Form_StudentScratch.Designer.vb">
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_StudentWord.Designer.vb">
+      <DependentUpon>Form_StudentWord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_StudentWord.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_TeacherEdit.Designer.vb">
@@ -128,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_StudentScratch.resx">
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_StudentWord.resx">
+      <DependentUpon>Form_StudentWord.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_TeacherEdit.resx">
       <DependentUpon>Form_TeacherEdit.vb</DependentUpon>
