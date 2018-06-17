@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7F46B681-F1D0-473F-B3E9-336DC083A3C7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>MAJOR_PROJECT.FormLanding</StartupObject>
+    <StartupObject>MAJOR_PROJECT.Form_TeacherEdit</StartupObject>
     <RootNamespace>MAJOR_PROJECT</RootNamespace>
     <AssemblyName>MAJOR_PROJECT</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -73,10 +73,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClozeText.vb" />
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Form_Landing.Designer.vb">
+      <DependentUpon>Form_Landing.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="Form_Landing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_PRINTSCRATCH.Designer.vb">
+      <DependentUpon>Form_PRINTSCRATCH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_PRINTSCRATCH.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_SignIn.Designer.vb">
@@ -133,8 +139,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Form_Landing.resx">
+      <DependentUpon>Form_Landing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_PRINTSCRATCH.resx">
+      <DependentUpon>Form_PRINTSCRATCH.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_SignIn.resx">
       <DependentUpon>Form_SignIn.vb</DependentUpon>

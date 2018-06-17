@@ -8,7 +8,7 @@
     Private Sub BTNcheck_Click(sender As Object, e As EventArgs) Handles BTNcheck.Click
 
         If CorrectUser = TBusername.Text And CorrectPass = TBpassword.Text Then
-            Form_TeacherScratch.Show()
+            Form_TeacherEdit.ShowDialog()
             Me.Visible = False
 
         ElseIf CorrectUser <> TBusername.Text Then
@@ -23,6 +23,10 @@
             Label1.ForeColor = Color.Red
             Label2.ForeColor = Color.Red
         End If
+
+    End Sub
+
+    Private Sub Form_SignIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

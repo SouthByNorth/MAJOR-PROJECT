@@ -1,15 +1,17 @@
 ﻿Public Class FormLanding
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BTNTeachLoad.Click
 
-        Form_SignIn.Show()
-        Me.Visible = False
+        'Pass in the user name
+        Form_SignIn.TBusername.Text = TextBox_UserName.Text
+        Form_SignIn.ShowDialog()
 
     End Sub
 
     Private Sub BTNStudentLoad_Click(sender As Object, e As EventArgs) Handles BTNStudentLoad.Click
 
-        Form_StudentScratch.Show()
-        Me.Visible = False
+        Form_StudentWord.UserName = TextBox_UserName.Text
+        Form_StudentWord.ShowDialog()
+
 
 
     End Sub

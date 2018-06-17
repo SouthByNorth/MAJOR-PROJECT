@@ -1,7 +1,9 @@
 ﻿Imports System.IO
 
 Public Class Form_StudentWord
-    Dim closeText As ClozeText
+
+    Dim closeTextForm As ClozeText 'Data Structure of the ClozeText
+
     Public UserName As String = "Rebecca"
 
     'we need to remeber the file the user is working on 
@@ -39,20 +41,14 @@ Public Class Form_StudentWord
         End If
     End Sub
 
-    Private Sub Form_StudentWord_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple1.txt"
-        Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Winston Smith.txt"
-        Loadfile(fileName)
-    End Sub
+    'Private Sub Form_StudentWord_Load(sender As Object, e As EventArgs) Handles Me.Load
+    '    'Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple1.txt"
+    '    Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Winston Smith.txt"
+    '    Loadfile(fileName)
+    'End Sub
 
-    Private Sub Loadfile(fileName As String)
 
-        'read the file to our data structure, then transferr to the ui
-        closeText = ClozeText.ReadClozeText(fileName)
-
-        'we need to remember the source so we can construct the result 
-        SourceFilePath = fileName
-
+    Public Sub DisplayClozeText(clozeText As ClozeText)
         'clear the ui - the Panel_ClozeText holds a collection of FlowLayoutPanels, one for each paragraph
         FlowLayoutPanel1.Controls.Clear()
         ListBox1.Items.Clear()
@@ -60,7 +56,7 @@ Public Class Form_StudentWord
         ' loop through each word in maintext, add either a label of a text box depending on the selections
 
         'to keep format we break into paragraphs, vbCrLF gives the split
-        Dim paragraphs() As String = closeText.MainText.Split(vbCrLf)
+        Dim paragraphs() As String = clozeText.MainText.Split(vbCrLf)
 
         For Each paragraph As String In paragraphs
             'loop through the words in the paragraph
@@ -72,9 +68,7 @@ Public Class Form_StudentWord
                 'clean up words that are adjacent to puntuaction 
                 Dim cleanWord As String = word.Trim(".,;!".ToCharArray)
 
-
-
-                If closeText.Selections.Contains(cleanWord) Then
+                If clozeText.Selections.Contains(cleanWord) Then
                     'this is a selected word, so we will create a text box
                     Dim myTextBox As TextBox = New TextBox
                     'we don't show the word, but we use the Tag to hold it for a compare later
@@ -116,8 +110,19 @@ Public Class Form_StudentWord
         Next
 
         ' adding selection items to user interface
-        ListBox1.Items.AddRange(closeText.Selections.ToArray)
+        ListBox1.Items.AddRange(clozeText.Selections.ToArray)
+    End Sub
 
+    Private Sub Loadfile(fileName As String)
+
+        'read the file to our data structure, then transferr to the ui
+        closeTextForm = ClozeText.ReadClozeText(fileName)
+        'display the close text
+        DisplayClozeText(closeTextForm)
+
+
+        'we need to remember the source so we can construct the result 
+        SourceFilePath = fileName
 
     End Sub
 
@@ -155,11 +160,11 @@ Public Class Form_StudentWord
         Dim fileWrite As System.IO.StreamWriter
         fileWrite = My.Computer.FileSystem.OpenTextFileWriter(resultFileName, True)
         'Main text comes first, then our seperator
-        fileWrite.WriteLine(closeText.MainText)
+        fileWrite.WriteLine(closeTextForm.MainText)
         fileWrite.WriteLine(ClozeText.SEPERATOR)
 
         'then it's the selection items, 1 each line
-        For Each item As String In closeText.Selections
+        For Each item As String In closeTextForm.Selections
             fileWrite.WriteLine(item)
         Next
         'then another seperator and the user's entry

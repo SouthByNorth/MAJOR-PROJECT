@@ -25,6 +25,8 @@ Partial Class FormLanding
         Me.BTNTeachLoad = New System.Windows.Forms.Button()
         Me.BTNStudentLoad = New System.Windows.Forms.Button()
         Me.LBLwho = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox_UserName = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'BTNTeachLoad
@@ -57,11 +59,29 @@ Partial Class FormLanding
         Me.LBLwho.TabIndex = 2
         Me.LBLwho.Text = "Who Are You?"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(39, 38)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(74, 25)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Name:"
+        '
+        'TextBox_UserName
+        '
+        Me.TextBox_UserName.Location = New System.Drawing.Point(119, 35)
+        Me.TextBox_UserName.Name = "TextBox_UserName"
+        Me.TextBox_UserName.Size = New System.Drawing.Size(284, 31)
+        Me.TextBox_UserName.TabIndex = 4
+        '
         'FormLanding
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(866, 404)
+        Me.Controls.Add(Me.TextBox_UserName)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.LBLwho)
         Me.Controls.Add(Me.BTNStudentLoad)
         Me.Controls.Add(Me.BTNTeachLoad)
@@ -75,4 +95,6 @@ Partial Class FormLanding
     Friend WithEvents BTNTeachLoad As Button
     Friend WithEvents BTNStudentLoad As Button
     Friend WithEvents LBLwho As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TextBox_UserName As TextBox
 End Class
