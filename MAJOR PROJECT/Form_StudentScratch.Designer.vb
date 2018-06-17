@@ -96,6 +96,7 @@ Partial Class Form_StudentScratch
         '
         'FlowLayoutPanel1
         '
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(24, 177)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(819, 232)

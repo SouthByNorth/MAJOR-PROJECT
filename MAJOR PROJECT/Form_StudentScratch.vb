@@ -6,7 +6,10 @@
         Dim myLabel As Label = New Label
         myLabel.Text = "Click:" + count.ToString
         myLabel.AutoSize = True
-        'myLabel.
+        'myLabel.Height = 12
+        myLabel.TextAlign = ContentAlignment.BottomCenter
+
+
         count = count + 3
 
         FlowLayoutPanel1.Controls.Add(myLabel)

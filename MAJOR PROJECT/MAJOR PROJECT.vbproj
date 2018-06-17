@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7F46B681-F1D0-473F-B3E9-336DC083A3C7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>MAJOR_PROJECT.My.MyApplication</StartupObject>
+    <StartupObject>MAJOR_PROJECT.FormLanding</StartupObject>
     <RootNamespace>MAJOR_PROJECT</RootNamespace>
     <AssemblyName>MAJOR_PROJECT</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -92,6 +92,12 @@
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form_StudentSignIn.Designer.vb">
+      <DependentUpon>Form_StudentSignIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_StudentSignIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form_StudentWord.Designer.vb">
       <DependentUpon>Form_StudentWord.vb</DependentUpon>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_StudentScratch.resx">
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_StudentSignIn.resx">
+      <DependentUpon>Form_StudentSignIn.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_StudentWord.resx">
       <DependentUpon>Form_StudentWord.vb</DependentUpon>

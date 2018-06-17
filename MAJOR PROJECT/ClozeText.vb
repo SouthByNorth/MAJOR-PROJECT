@@ -45,7 +45,8 @@ Public Class ClozeText
             Next
         End If
 
-
+        'files need closing
+        myStreamReader.Close()
         Return clozeText
     End Function
 

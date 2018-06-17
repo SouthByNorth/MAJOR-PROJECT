@@ -73,8 +73,9 @@ Public Class Form_TeacherEdit
         'read the file to our dat structure, then transferr to the ui
         Dim closeText As ClozeText = ClozeText.ReadClozeText(fileName)
 
-        'load controls
+        'load controls, clear any earlier items
         RichTextBox1.Text = closeText.MainText
+        LBRemove.Items.Clear()
         LBRemove.Items.AddRange(closeText.Selections.ToArray)
 
     End Sub
@@ -88,27 +89,43 @@ Public Class Form_TeacherEdit
     Private Sub BTNsave_Click(sender As Object, e As EventArgs) Handles BTNsave.Click
 
 
-        Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple1.txt"
+        ' Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple1.txt"
 
-        ' get rid of file if already exosts 
-        If File.Exists(fileName) Then
-            File.Delete(fileName)
+        Dim saveFileDialog1 As New SaveFileDialog()
+
+        saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"
+        saveFileDialog1.FilterIndex = 2
+        saveFileDialog1.RestoreDirectory = True
+
+        If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+
+            'Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple1.txt"
+            Dim fileName As String = saveFileDialog1.FileName
+
+            ' get rid of file if already exosts 
+            If File.Exists(fileName) Then
+                File.Delete(fileName)
+            End If
+
+            Dim fileWrite As System.IO.StreamWriter
+
+            fileWrite = My.Computer.FileSystem.OpenTextFileWriter(fileName, True)
+            fileWrite.WriteLine(RichTextBox1.Text)
+            fileWrite.WriteLine(ClozeText.SEPERATOR)
+
+            For Each item As String In LBRemove.Items
+                fileWrite.WriteLine(item)
+            Next
+
+            fileWrite.Close()
+
         End If
 
 
-        Dim fileWrite As System.IO.StreamWriter
-
-        fileWrite = My.Computer.FileSystem.OpenTextFileWriter(fileName, True)
-        fileWrite.WriteLine(RichTextBox1.Text)
-        fileWrite.WriteLine(ClozeText.SEPERATOR)
-
-        For Each item As String In LBRemove.Items
-
-            fileWrite.WriteLine(item)
-        Next
 
 
-        fileWrite.Close()
+
+
 
     End Sub
 End Class
