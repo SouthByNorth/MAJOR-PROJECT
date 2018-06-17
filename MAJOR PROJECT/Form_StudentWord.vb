@@ -41,13 +41,6 @@ Public Class Form_StudentWord
         End If
     End Sub
 
-    'Private Sub Form_StudentWord_Load(sender As Object, e As EventArgs) Handles Me.Load
-    '    'Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Simple1.txt"
-    '    Dim fileName As String = "C:\Users\rpren\Documents\ClozeTextFiles\Winston Smith.txt"
-    '    Loadfile(fileName)
-    'End Sub
-
-
     Public Sub DisplayClozeText(clozeText As ClozeText)
         'clear the ui - the Panel_ClozeText holds a collection of FlowLayoutPanels, one for each paragraph
         FlowLayoutPanel1.Controls.Clear()
@@ -64,7 +57,7 @@ Public Class Form_StudentWord
             Dim words() As String = paragraph.Split(" ".ToCharArray)
             For Each word As String In words
 
-                'punctuation is a problem, selected words with commas dont get matched woth the selection 
+                'punctuation is a problem, selected words with commas dont get matched with the selection 
                 'clean up words that are adjacent to puntuaction 
                 Dim cleanWord As String = word.Trim(".,;!".ToCharArray)
 
@@ -199,14 +192,9 @@ Public Class Form_StudentWord
             If textBox IsNot Nothing Then
                 'this is a textbox in the flow panel, we are comapring whast entered to what it should be 
                 If textBox.Tag.Equals(textBox.Text.Trim(" ".ToCharArray)) Then
-
                     textBox.BackColor = Color.LightGreen
-
                 Else
                     textBox.BackColor = Color.LightPink
-
-
-
                 End If
             End If
         Next
