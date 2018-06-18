@@ -29,4 +29,8 @@
     Private Sub Form_SignIn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TBpassword.TextChanged
+
+    End Sub
 End Class

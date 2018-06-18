@@ -138,7 +138,7 @@ Public Class Form_TeacherEdit
     End Sub
 
     Private Sub BTNprint_Click(sender As Object, e As EventArgs) Handles BTNprint.Click
-        'cliocking the print button prepares a PrintDocument,
+        'clicking the print button prepares a PrintDocument,
         'we have a seperate handler to construct each page
         PrintDialog1.ShowDialog()
 
@@ -164,7 +164,7 @@ Public Class Form_TeacherEdit
             'Tell the Preview about the printDocument
             PrintPreviewDialog1.Document = pd
             PrintPreviewDialog1.ShowDialog()
-            'pd.Print()
+
         End If
     End Sub
 
@@ -295,7 +295,7 @@ Public Class Form_TeacherEdit
         ' now to do the selected words 
         'we are going to send them across the page. 
         'only start printing the selection if there is space on the page
-        'HasMorePages == True If we have hit the bottom Of the page
+        'HasMorePages = True If we have hit the bottom Of the page
         If (args.HasMorePages <> True) Then
             'we still have some space on the page, but do we have enough to start the selections
             'We want at least 40 points left, otherwise - get a new page
@@ -309,7 +309,7 @@ Public Class Form_TeacherEdit
                 For Each selectedWord As String In clozeTextToPrint.Selections
                     'how big is this word going to be?
                     Dim stringSize As SizeF = args.Graphics.MeasureString(selectedWord, printFont)
-                    ' havw we got the sapce to put the word and some trailing space on the line?
+                    ' have we got the sapce to put the word and some trailing space on the line?
                     If (xPos + stringSize.Width + 10 < args.MarginBounds.Right) Then
                         ' we just wrote the word 
                     Else

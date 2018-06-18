@@ -85,12 +85,6 @@
     <Compile Include="Form_PRINTSCRATCH.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_SignIn.Designer.vb">
-      <DependentUpon>Form_SignIn.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form_SignIn.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Form_StudentScratch.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -98,10 +92,10 @@
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_StudentSignIn.Designer.vb">
-      <DependentUpon>Form_StudentSignIn.vb</DependentUpon>
+    <Compile Include="Form_SignIn.Designer.vb">
+      <DependentUpon>Form_SignIn.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form_StudentSignIn.vb">
+    <Compile Include="Form_SignIn.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_StudentWord.Designer.vb">
@@ -145,14 +139,11 @@
     <EmbeddedResource Include="Form_PRINTSCRATCH.resx">
       <DependentUpon>Form_PRINTSCRATCH.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_SignIn.resx">
-      <DependentUpon>Form_SignIn.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form_StudentScratch.resx">
       <DependentUpon>Form_StudentScratch.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_StudentSignIn.resx">
-      <DependentUpon>Form_StudentSignIn.vb</DependentUpon>
+    <EmbeddedResource Include="Form_SignIn.resx">
+      <DependentUpon>Form_SignIn.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_StudentWord.resx">
       <DependentUpon>Form_StudentWord.vb</DependentUpon>
